@@ -1,18 +1,20 @@
-function translate( aSentence){
-  if((aSentence === "a")||(aSentence === "i")||(aSentence === "o")||(aSentence === "u")||(aSentence ==="e")){
-    return "1" ;
-  }else { 
-    return "2";
+
+  function translate(input) {
+    charArray = input.split("");
+    if ((charArray.length === 1) && ((input === "a") || (input === "A") || (input === "i") || (input === "I") || (input === "o") || (input === "O"))) {
+      return "1";
+    } else {
+      return input;
+    }
   }
-}
-
-$(document).ready(function() {
-  $("form#myForm").submit(function(event) {
-    event.preventDefault();
-    let sentence = $("#user-input").val();
-    let output = translate(sentence);
-
-    $("#results").text(output);
+   
+   
+  $(document).ready(function() {
+    $("form#form").submit(function(event) {
+      event.preventDefault();
+      const toTranslate = $("#user-input").val();
+      const pigLatin = translate(toTranslate);
+   
+      $("#results").text(pigLatin);
+    });
   });
-});
-
